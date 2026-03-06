@@ -33,3 +33,11 @@ jobs:
 
       - name: Run tests
         run: dotnet test --no-build --configuration Release --logger "trx;LogFileName=test-results.trx" --results-directory TestResults
+
+      - name: Publish test results
+        uses: dorny/test-reporter@v1
+        if: always()
+        with:
+          name: 'Test Results'
+          path: 'TestResults/*.trx'
+          reporter: dotnet-trx
