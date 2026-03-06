@@ -10,6 +10,7 @@ public class StringCalculator
 
     public int Calculate(string arg)
     {
+        return -1;
         if (arg == "")
         {
             return 0;
